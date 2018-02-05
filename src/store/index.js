@@ -1,16 +1,14 @@
-const temp = {}
-const obj = {}
-Object.defineProperties(obj, {
-    name: {
-        set: function (value) {
-            console.log('set');
-            temp.text = value
-        },
-        get: function () {
-            console.log('get');
-            return temp.text
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+    state: {
+        name: 'fox'
+    },
+    mutations: {
+        changeName(state, Payload) {
+            state.name = Payload.name
         }
     }
 })
-
-export default obj

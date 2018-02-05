@@ -3,31 +3,31 @@
 </style>
     <template>
     <div id="app">
+        <input type="text" v-model="customName">
         {{name}}
-        <input type="text" v-model="name">
-        <button @click="show">click me</button>
+        <button @click="changeName">click me</button>
     </div>
-    </template>
+</template>
 
-    <script>
-import HW from "@/components/HelloWorld";
+<script>
 import store from "@/store";
 
 export default {
   name: "App",
   data() {
-      return {
-          name: store.name
-      }
+    return {
+        customName: 1
+    };
   },
   methods: {
-      show () {
-          console.log(store);
-      }
+        changeName() {
+            this.$store.commit('changeName', {name: this.customName})
+        }
   },
-  components: {
-    HW
-  },
-  
+  computed: {
+    name() {
+        return this.$store.state.name;
+    }
+  }
 };
 </script>
