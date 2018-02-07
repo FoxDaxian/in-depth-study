@@ -1,0 +1,3 @@
+[submodule "vuex"]
+	path = vuex
+	url = https://github.com/vuejs/vuex.git
