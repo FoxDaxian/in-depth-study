@@ -1,33 +1,41 @@
 <style>
 
 </style>
-    <template>
+
+<template>
     <div id="app">
-        <input type="text" v-model="customName">
+        <HW></HW>
+        <input type="text" v-model="name">
         {{name}}
-        <button @click="changeName">click me</button>
     </div>
 </template>
 
 <script>
+import HW from "./components/HelloWorld.vue";
 import store from "@/store";
 
 export default {
   name: "App",
   data() {
-    return {
-        customName: 1
-    };
+    return {};
   },
-  methods: {
-        changeName() {
-            this.$store.commit('changeName', {name: this.customName})
-        }
+  components: {
+    HW
   },
+  methods: {},
+  watch: {},
   computed: {
     name() {
-        return this.$store.state.name;
+      return this.$options.parent.$options.test.name;
     }
+  },
+  mounted() {
+    setTimeout(() => {
+        console.log(123);
+        this.$set(this.$options.parent.$options.test, 'name', '123fox')
+        console.log(this.$options.parent.$options.test);
+        console.log(this);
+    }, 2000)
   }
 };
 </script>

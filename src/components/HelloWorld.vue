@@ -4,7 +4,7 @@
 
 <template>
     <div class="root">
-        123213
+        hw
     </div>
 </template>
 <script>
@@ -18,7 +18,6 @@ export default {
         name: String
     },
     mounted() {
-        
     }
 };
 </script>
