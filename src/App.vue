@@ -5,7 +5,6 @@
 <template>
     <div id="app">
         <HW></HW>
-        <input type="text" v-model="name">
         {{name}}
     </div>
 </template>
@@ -26,16 +25,10 @@ export default {
   watch: {},
   computed: {
     name() {
-      return this.$options.parent.$options.test.name;
+      return this.$store.state.name;
     }
   },
   mounted() {
-    setTimeout(() => {
-        console.log(123);
-        this.$set(this.$options.parent.$options.test, 'name', '123fox')
-        console.log(this.$options.parent.$options.test);
-        console.log(this);
-    }, 2000)
   }
 };
 </script>
